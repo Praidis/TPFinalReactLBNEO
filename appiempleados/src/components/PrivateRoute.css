@@ -1,0 +1,20 @@
+.screencontainer {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 1200px;
+    box-sizing: border-box;
+  }
+  
+  .top-bar {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .top-bar h1 {
+    margin: 0;
+  }

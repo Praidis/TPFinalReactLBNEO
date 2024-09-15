@@ -1,0 +1,58 @@
+{
+  "empleados": [
+    {
+      "id": "1",
+      "name": "Josue",
+      "email": "Luis@gmail.com",
+      "position": "Jefaso"
+    },
+    {
+      "id": "2",
+      "name": "Maria González",
+      "email": "maria.gonzalez@example.com",
+      "position": "Gerente de Recursos Humanos"
+    },
+    {
+      "id": "3",
+      "name": "Carlos Pérez",
+      "email": "carlos.perez@example.com",
+      "position": "Desarrollador Backend"
+    },
+    {
+      "id": "4",
+      "name": "Ana Torres",
+      "email": "ana.torres@example.com",
+      "position": "Analista de Datos"
+    },
+    {
+      "id": "5",
+      "name": "Luis Martínez",
+      "email": "luis.martinez@example.com",
+      "position": "Ingeniero de Software"
+    },
+    {
+      "id": "6",
+      "name": "Fernanda Ramírez",
+      "email": "fernanda.ramirez@example.com",
+      "position": "Diseñadora UX/UI"
+    },
+    {
+      "id": "7",
+      "name": "Pedro Castillo",
+      "email": "pedro.castillo@example.com",
+      "position": "Administrador de Sistemas"
+    },
+    {
+      "id": "8",
+      "name": "Laura Herrera",
+      "email": "laura.herrera@example.com",
+      "position": "Especialista en Marketing"
+    },
+    {
+      "id": "9",
+      "name": "Jorge Flores",
+      "email": "jorge.flores@example.com",
+      "position": "Desarrollador Frontend"
+    }
+  ]
+}

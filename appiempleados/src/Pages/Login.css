@@ -1,0 +1,72 @@
+.login-form {
+    background: #333;
+    color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    width: 300px; /* Set a width for the login form */
+    margin: 0 auto; /* Center the form horizontally */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+ /* .login-form h2 {
+    text-align: center;
+   margin-bottom: 20px;
+  } */
+  
+  .form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .form-group label {
+    /* display: block; */
+    margin-bottom: 5px;
+  }
+  
+  .form-group input {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #444;
+    color: #fff;
+  }
+  
+  .form-group input:focus {
+    outline: none;
+    border-color: #f093fb;
+  }
+  
+ 
+  .form-group button {
+    background: #f093fb;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .form-group button:hover {
+    background: #c778dd;
+  }
+  
+  /* Error message styling */
+  .error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    display: block; /* Add this line to ensure the error message is displayed as a block element */
+  }
+
+
+
+
+  
