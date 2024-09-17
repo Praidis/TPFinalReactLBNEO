@@ -5,7 +5,7 @@ const useForm = (callback, initialState = {}) => {
     const initialValues = { ...initialState };
     Object.keys(initialValues).forEach((key) => {
       if (initialValues[key] === '') {
-        initialValues[key] = ''; // Preserve empty values
+        initialValues[key] = '';
       }
     });
     return initialValues;
@@ -19,7 +19,7 @@ const useForm = (callback, initialState = {}) => {
 
   const resetField = (fieldName, newValue = '') => {
     if (newValue === '') {
-      setValues({ ...values, [fieldName]: '' }); // Set the field to an empty value
+      setValues({ ...values, [fieldName]: '' });
     } else {
       setValues({ ...values, [fieldName]: newValue });
     }
@@ -28,12 +28,7 @@ const useForm = (callback, initialState = {}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const newErrors = {};
-    // if (!values.username) {
-    //   newErrors.username = 'El usuario es requerido';
-    // }
-    // if (!values.password) {
-    //   newErrors.password = 'La contraseña es requerida';
-    // }
+
     setErrors(newErrors);
     if (Object.keys(newErrors).length === 0) {
       callback(values);

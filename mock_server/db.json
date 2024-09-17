@@ -2,7 +2,7 @@
   "empleados": [
     {
       "id": "1",
-      "name": "Josue",
+      "name": "Luisin",
       "email": "Luis@gmail.com",
       "position": "Jefaso"
     },
@@ -43,16 +43,16 @@
       "position": "Administrador de Sistemas"
     },
     {
-      "id": "8",
-      "name": "Laura Herrera",
-      "email": "laura.herrera@example.com",
-      "position": "Especialista en Marketing"
+      "id": "281",
+      "name": "Josue",
+      "email": "josue@gmail.com",
+      "position": "MiLider"
     },
     {
-      "id": "9",
-      "name": "Jorge Flores",
-      "email": "jorge.flores@example.com",
-      "position": "Desarrollador Frontend"
+      "id": "797",
+      "name": "Andy",
+      "email": "andy@gmail.com",
+      "position": "Marketing"
     }
   ]
 }
