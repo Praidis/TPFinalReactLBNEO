@@ -11,8 +11,8 @@ const NuevoEmpleado = () => {
 
   const agregarEmpleado = async () => {
     const errores = {};
-    if (!values.name) errores.name = 'Campo requerido';
-    if (!values.email) errores.email = 'Campo requerido';
+    if (!values.name) errores.name = 'Nombre Requerido';
+    if (!values.email) errores.email = 'Email Valido requerido';
     if (!values.position) errores.position = 'Campo requerido';
 
     if (Object.keys(errores).length > 0) {
