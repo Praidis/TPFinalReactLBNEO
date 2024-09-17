@@ -1,5 +1,5 @@
 import React from 'react';
-import './EliminarEmpleadoModal.css'; // Reutilizamos los estilos del modal
+import './EliminarEmpleadoModal.css';
 
 const ErrorModal = ({ mensajeError, onLogout }) => {
   return (

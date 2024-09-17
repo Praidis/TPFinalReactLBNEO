@@ -3,12 +3,14 @@ import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import useForm from '../Hooks/useForm';
 import './ModificarEmpleado.css';
+import ErrorModal from './ErrorModal';
 
 function ModificarEmpleado() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [empleado, setEmpleado] = useState(null);
-  const [error, setError] = useState(null);
+  const [errorModal, setErrorModal] = useState(false); // Estado para el modal de error
+  const [errorModalMessage, setErrorModalMessage] = useState(''); // Estado para el mensaje de error del modal
 
   const actualizarEmpleado = async (values) => {
     try {
@@ -30,10 +32,14 @@ function ModificarEmpleado() {
         .then((response) => response.json())
         .then(() => {
           navigate('/empleados');
+        })
+        .catch((error) => {
+          setErrorModal(true);
+          setErrorModalMessage('Error de Conexión: No se pudo conectar a la base de datos');
         });
     } catch (error) {
-      setError(error.message);
-      console.error(error);
+      setErrorModal(true);
+      setErrorModalMessage('Error de Conexión: No se pudo conectar a la base de datos');
     }
   };
 
@@ -44,13 +50,25 @@ function ModificarEmpleado() {
       .then((response) => response.json())
       .then((data) => setEmpleado(data))
       .catch((error) => {
-        setError(error.message);
-        console.error(error);
+        setErrorModal(true);
+        setErrorModalMessage('Error de Conexión: No se pudo conectar a la base de datos');
       });
   }, [id]);
 
   if (!empleado) return <div>Cargando...</div>;
-  if (error) return <div>Error: {error}</div>;
+
+  const ErrorModalComponent = () => {
+    if (!errorModal) return null;
+    return (
+      <ErrorModal
+        mensajeError={errorModalMessage}
+        onLogout={() => {
+          navigate('/Login');
+          console.log('Logout button clicked');
+        }}
+      />
+    );
+  };
 
   return (
     <div className="modificar-empleado-form">
@@ -98,6 +116,7 @@ function ModificarEmpleado() {
           </button>
         </div>
       </form>
+      {ErrorModalComponent()}
     </div>
   );
 }

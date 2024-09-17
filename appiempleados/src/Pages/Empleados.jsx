@@ -1,18 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import EliminarEmpleadoModal from './EliminarEmpleadoModal';
+import ErrorModal from './ErrorModal';
 import './Empleados.css'; // Importa el archivo CSS
 
 const Empleados = () => {
   const [empleados, setEmpleados] = useState([]);
   const [empleadoAEliminar, setEmpleadoAEliminar] = useState(null);
+  const [errorModal, setErrorModal] = useState(false); // Estado para el modal de error
+  const [errorModalMessage, setErrorModalMessage] = useState(''); // Estado para el mensaje de error del modal
   const navigate = useNavigate();
 
   // Obtener la lista de empleados desde el servidor
   useEffect(() => {
     fetch('http://localhost:5000/empleados')
       .then((response) => response.json())
-      .then((data) => setEmpleados(data));
+      .then((data) => setEmpleados(data))
+      .catch((error) => {
+        setErrorModal(true);
+        setErrorModalMessage('Error de Conexión: No se pudo conectar a la base de datos');
+        console.error(error);
+      });
   }, []);
 
   // Función para eliminar un empleado
@@ -24,6 +32,8 @@ const Empleados = () => {
       setEmpleados(empleados.filter((empleado) => empleado.id !== id)); // Actualiza la lista
       navigate('/empleados'); // Devuelve a la página de empleados
     } catch (error) {
+      setErrorModal(true);
+      setErrorModalMessage('Error al eliminar empleado');
       console.error('Error al eliminar empleado:', error);
     }
   };
@@ -34,6 +44,19 @@ const Empleados = () => {
 
   const handleCloseModal = () => {
     setEmpleadoAEliminar(null);
+  };
+
+  const ErrorModalComponent = () => {
+    if (!errorModal) return null;
+    return (
+      <ErrorModal
+        mensajeError={errorModalMessage}
+        onLogout={() => {
+          navigate('/login')// Implement logout functionality here
+          console.log('Logout button clicked');
+        }}
+      />
+    );
   };
 
   return (
@@ -98,6 +121,7 @@ const Empleados = () => {
           navigate={navigate}
         />
       )}
+      {ErrorModalComponent()}
     </div>
   );
 };

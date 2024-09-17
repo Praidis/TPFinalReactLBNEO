@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import useForm from '../Hooks/useForm';
 import { useNavigate } from 'react-router-dom';
 import './NuevoEmpleado.css';
+import ErrorModal from './ErrorModal';
 
 const NuevoEmpleado = () => {
   const navigate = useNavigate();
   const [isSubmitting, setIsSubmitting] = useState(false); // Estado para controlar el envío
   const [message, setMessage] = useState(''); // Estado para el mensaje de feedback
   const [errors, setErrors] = useState({}); // Estado para los mensajes de error
+  const [errorModal, setErrorModal] = useState(false); // Estado para el modal de error
+  const [errorModalMessage, setErrorModalMessage] = useState(''); // Estado para el mensaje de error del modal
 
   const agregarEmpleado = async () => {
     const errores = {};
@@ -43,6 +46,8 @@ const NuevoEmpleado = () => {
     } catch (error) {
       console.error('Error al agregar empleado:', error);
       setMessage('Error al agregar empleado. Inténtalo de nuevo.');
+      setErrorModal(true); // Set errorModal to true
+      setErrorModalMessage('Error de Conexión: No se pudo conectar a la base de datos');
     } finally {
       setIsSubmitting(false);
     }
@@ -53,6 +58,21 @@ const NuevoEmpleado = () => {
     email: '',
     position: ''
   });
+
+  const ErrorModalComponent = () => {
+    if (!errorModal) return null;
+    return (
+      <ErrorModal
+        mensajeError={errorModalMessage}
+        onLogout={() => {
+          navigate('/login')
+          console.log('Logout button clicked');
+        }}
+      >
+        <p>{errorModalMessage}</p> {/* Render the error message */}
+      </ErrorModal>
+    );
+  };
 
   return (
     <div className="nuevo-empleado-form">
@@ -96,6 +116,7 @@ const NuevoEmpleado = () => {
           <button type="button" className="volver-button" onClick={() => navigate('/empleados')}>Volver</button> {/* Botón Volver */}
         </div>
       </form>
+      {ErrorModalComponent()}
     </div>
   );
 };

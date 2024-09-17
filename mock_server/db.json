@@ -2,7 +2,7 @@
   "empleados": [
     {
       "id": "1",
-      "name": "Luisin",
+      "name": "Luis",
       "email": "Luis@gmail.com",
       "position": "Jefaso"
     },
@@ -49,10 +49,10 @@
       "position": "MiLider"
     },
     {
-      "id": "797",
+      "id": "214",
       "name": "Andy",
       "email": "andy@gmail.com",
-      "position": "Marketing"
+      "position": "marcketing"
     }
   ]
 }

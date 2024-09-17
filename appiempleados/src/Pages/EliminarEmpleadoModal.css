@@ -54,3 +54,11 @@
 .botones-container button.cancel:hover {
   background-color: #60e380;
 }
+
+.eliminar-empleado-modal p {
+  color: #333; /* o cualquier otro color que contraste con el fondo blanco */
+}
+
+.eliminar-empleado-modal h2 {
+  color: #333; /* o cualquier otro color que contraste con el fondo blanco */
+}
