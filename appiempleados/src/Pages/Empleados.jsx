@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import EliminarEmpleadoModal from './EliminarEmpleadoModal';
+import './Empleados.css'; // Importa el archivo CSS
 
 const Empleados = () => {
   const [empleados, setEmpleados] = useState([]);
@@ -38,68 +39,57 @@ const Empleados = () => {
   return (
     <div>
       <Link to="/empleados/nuevo">
-        <button 
-          style={{ 
-            backgroundColor: 'rgb(30 126 14)', 
-            color: 'White', 
-            marginBottom: '20px' 
-          }}
-        >
+        <button className="btn-agregar">
           Agregar Nuevo Empleado
         </button>
       </Link>
       <button 
-        style={{ 
-          marginLeft: '10px', 
-          backgroundColor: 'gray', 
-          color: 'white', 
-          marginBottom: '20px' 
-        }} 
+        className="btn-volver"
         onClick={() => navigate('/')}
       >
         Volver
       </button>
-      
+
       <div className="table-container">
-  <div className="table-wrapper">
-    <table className="employee-table">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Nombre</th>
-          <th>Email</th>
-          <th>Puesto</th>
-          <th>Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        {empleados.map((empleado) => (
-          <tr key={empleado.id}>
-            <td>{empleado.id}</td>
-            <td>{empleado.name}</td>
-            <td>{empleado.email}</td>
-            <td>{empleado.position}</td>
-            <td>
-              <button
-                style={{ marginRight: '10px', backgroundColor: 'skyblue', color: 'white' }}
-                onClick={() => navigate(`/empleados/modificar/${empleado.id}`)}
-              >
-                Modificar
-              </button>
-              <button
-                style={{ backgroundColor: 'Red', color: 'white' }}
-                onClick={() => handleEliminarEmpleado(empleado)}
-              >
-                Eliminar
-              </button>
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  </div>
-</div>
-      
+        <div className="table-wrapper">
+          <table className="employee-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Puesto</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              {empleados.map((empleado) => (
+                <tr key={empleado.id}>
+                  <td>{empleado.id}</td>
+                  <td>{empleado.name}</td>
+                  <td>{empleado.email}</td>
+                  <td>{empleado.position}</td>
+                  <td>
+                    <button
+                      className="btn-modificar"
+                      onClick={() => navigate(`/empleados/modificar/${empleado.id}`)}
+                    >
+                      Modificar
+                    </button>
+                    <button
+                      className="btn-eliminar"
+                      onClick={() => handleEliminarEmpleado(empleado)}
+                    >
+                      Eliminar
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
       {empleadoAEliminar && (
         <EliminarEmpleadoModal
           empleado={empleadoAEliminar}

@@ -1,0 +1,64 @@
+.employee-table {
+    width: 100%;
+    border-radius: 10px;
+    /* border: 1px solid #ddd; */
+  }
+  
+  .employee-table th,
+  .employee-table td {
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .employee-table th {
+    background-color: #000;
+    color: #fff;
+    position: sticky;
+  }
+  
+  .employee-table tr:last-child td {
+    border-bottom: none;
+  }
+  
+  .btn-agregar {
+    background-color: rgb(30, 126, 14);
+    color: white;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px; /* Agrega un margen a la derecha del botón */
+  }
+  
+  .btn-volver {
+    margin-left: 10px;
+    background-color: gray;
+    color: white;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px; /* Agrega un margen a la izquierda del botón */
+  }
+  
+  .btn-modificar {
+    background-color: skyblue;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px; /* Agrega un margen alrededor del botón */
+  }
+  
+  .btn-eliminar {
+    background-color: red;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px; /* Agrega un margen alrededor del botón */
+  }

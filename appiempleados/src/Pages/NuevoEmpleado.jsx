@@ -1,14 +1,25 @@
 import React, { useState } from 'react';
 import useForm from '../Hooks/useForm';
 import { useNavigate } from 'react-router-dom';
-import './NuevoEmpleado.css'; 
+import './NuevoEmpleado.css';
 
 const NuevoEmpleado = () => {
   const navigate = useNavigate();
   const [isSubmitting, setIsSubmitting] = useState(false); // Estado para controlar el envío
   const [message, setMessage] = useState(''); // Estado para el mensaje de feedback
-  
+  const [errors, setErrors] = useState({}); // Estado para los mensajes de error
+
   const agregarEmpleado = async () => {
+    const errores = {};
+    if (!values.name) errores.name = 'Campo requerido';
+    if (!values.email) errores.email = 'Campo requerido';
+    if (!values.position) errores.position = 'Campo requerido';
+
+    if (Object.keys(errores).length > 0) {
+      setErrors(errores);
+      return;
+    }
+
     setIsSubmitting(true);
     const empleado = {
       id: Math.floor(Math.random() * 1000).toString(),
@@ -56,6 +67,7 @@ const NuevoEmpleado = () => {
             value={values.name}
             onChange={handleChange}
           />
+          {errors.name && <p className="error-message">{errors.name}</p>}
         </div>
         <div className="form-group">
           <label>Correo electrónico:</label>
@@ -65,6 +77,7 @@ const NuevoEmpleado = () => {
             value={values.email}
             onChange={handleChange}
           />
+          {errors.email && <p className="error-message">{errors.email}</p>}
         </div>
         <div className="form-group">
           <label>Posición:</label>
@@ -74,6 +87,7 @@ const NuevoEmpleado = () => {
             value={values.position}
             onChange={handleChange}
           />
+          {errors.position && <p className="error-message">{errors.position}</p>}
         </div>
         <div className="form-group">
           <button type="submit" disabled={isSubmitting}> {/* Desactivar botón durante el envío */}
